@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/wireframe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        Enter Start Time <input type="text" name="starting_time_hours" /> Enter Number of minutes <input type="text" name="minutes" /> Enter total call of minutes <input type="text" name="call_minutes" />
+        <button id="submit">Submit</button>
+    </section>
+
+</body>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const inputs = document.querySelectorAll("input:not(input[type=submit])");
+        const refresh_values = () => {
+            for (const input of inputs) {
+                window[input.name] = input.value;
+            }
+        };
+
+        document.getElementById("submit").onclick = () => {
+            refresh_values();
+            main();
+        };
+    });
+
+    function main() {
+
+
+        const time = starting_time_hours;
+        const no_of_mintues = minutes;
+        const call_time = call_minutes;
+
+        if (starting_time_hours > 0 && starting_time_hours < 7 && minutes < 60) {
+            const tax1 = call_minutes * 0.12;
+            console.log(`Your Tax on this call is $ ${tax1}`)
+        } else if (starting_time_hours > 7 && starting_time_hours < 19 && minutes < 60) {
+            const tax1 = call_minutes * 0.55;
+            console.log(`Your Tax on this call is $ ${tax2}`)
+        } else if (starting_time_hours > 19 && starting_time_hours < 23 && minutes < 60) {
+            const tax1 = call_minutes * 0.35;
+            console.log(`Your Tax on this call is $ ${tax3}`)
+        } else {
+            console.log('Invalid Value');
+        }
+    }
+</script>
+
+</html>

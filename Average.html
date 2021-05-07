@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/wireframe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <section>
+        Enter first number <input type="number" name="first" /> Enter Second number <input type="number" name="Second" /> Enter third number <input type="number" name="third" />
+        <button id="submit">Submit</button>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const inputs = document.querySelectorAll("input:not(input[type=submit])");
+            const refresh_values = () => {
+                for (const input of inputs) {
+                    window[input.name] = input.value;
+                }
+            };
+
+            document.getElementById("submit").onclick = () => {
+                refresh_values();
+                main();
+            };
+        });
+
+        function main() {
+            console.log((parseFloat(first) + parseFloat(Second) + parseFloat(third)) / 3);
+        }
+    </script>
+
+
+</body>
+
+</html>

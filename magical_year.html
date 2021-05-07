@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/wireframe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <section>
+        Enter the Day <input type="number" name="day" /><br><br> Enter the Month <input type="number" name="month" /><br><br> Enter the Year <input type="number" name="year" /><br><br>
+        <button id="submit">Submit</button>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const inputs = document.querySelectorAll("input:not(input[type=submit])");
+            const refresh_values = () => {
+                for (const input of inputs) {
+                    window[input.name] = input.value;
+                }
+            };
+
+            document.getElementById("submit").onclick = () => {
+                refresh_values();
+                main();
+            };
+        });
+
+        function main() {
+            console.log(`${day*month}`)
+
+            if (day * month == year) {
+                console.log('This is Magical year')
+            } else {
+                console.log('This is not a Magical year')
+            }
+        }
+    </script>
+
+</body>
+
+</html>

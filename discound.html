@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/wireframe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <section>
+        Enter Number of Product<input type="number" name="Product" />
+        <button id="submit">Submit</button>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const inputs = document.querySelectorAll("input:not(input[type=submit])");
+            const refresh_values = () => {
+                for (const input of inputs) {
+                    window[input.name] = input.value;
+                }
+            };
+
+            document.getElementById("submit").onclick = () => {
+                refresh_values();
+                main();
+            };
+        });
+
+        function main() {
+
+            const total_price = Product * 99;
+
+            if (Product >= 10 && Product <= 19) {
+                discount = (20 * 99) / 100;
+                dis_price = discount * Product;
+                console.log(` the total price according to the discount is ${dis_price} of total price ${total_price} `);
+
+
+            } else if (Product >= 20 && Product <= 49) {
+
+                discount = (30 * 99) / 100;
+                dis_price = discount * Product;
+                console.log(` the total price according to the discount is ${dis_price} of total price ${total_price} `);
+
+            } else if (Product >= 50 && Product <= 99) {
+
+                discount = (40 * 99) / 100;
+                dis_price = discount * Product;
+                console.log(` the total price according to the discount is ${dis_price} of total price ${total_price} `);
+
+            } else if (Product >= 100) {
+
+                discount = (50 * 99) / 100;
+                dis_price = discount * Product;
+                console.log(` the total price according to the discount is ${dis_price} of total price ${total_price} `);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

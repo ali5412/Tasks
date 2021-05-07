@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/wireframe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <section>
+        Enter Your number <input type="number" name="first" />
+        <button id="submit">Submit</button>
+    </section>
+
+
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const inputs = document.querySelectorAll("input:not(input[type=submit])");
+        const refresh_values = () => {
+            for (const input of inputs) {
+                window[input.name] = input.value;
+            }
+        };
+
+        document.getElementById("submit").onclick = () => {
+            refresh_values();
+            main();
+        };
+    });
+
+    function main() {
+        switch (parseFloat(first)) {
+            case (1):
+                console.log('One')
+                break;
+            case (2):
+                console.log('TWO')
+
+                break;
+            case (3):
+                console.log('Three')
+
+                break;
+            case (4):
+                console.log('Four')
+
+                break;
+            case (5):
+                console.log('Five')
+
+                break;
+            case (6):
+                console.log('six')
+
+                break;
+            case (7):
+                console.log('seven')
+
+                break;
+            case (8):
+                console.log('eight')
+
+                break;
+            case (9):
+                console.log('nine')
+                break;
+
+            case (10):
+                console.log('ten')
+                break;
+
+            default:
+                console.log('Do not accept any number less then 1 or greater then 10    ');
+                break;
+        }
+    }
+</script>
+
+</html>

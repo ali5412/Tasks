@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/wireframe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <section>
+        Enter the length of rectangle <input type="number" name="length" /> Enter the width of rectangle <input type="number" name="width" />
+
+        <br><br><br> Enter the length of second rectangle <input type="number" name="slength" /> Enter the width of second rectangle <input type="number" name="swidth" />
+        <button id="submit">Submit</button>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const inputs = document.querySelectorAll("input:not(input[type=submit])");
+            const refresh_values = () => {
+                for (const input of inputs) {
+                    window[input.name] = input.value;
+                }
+            };
+
+            document.getElementById("submit").onclick = () => {
+                refresh_values();
+                main();
+            };
+        });
+
+        function main() {
+            console.log(`The area of first rectangle is ${length*width}`)
+            console.log(`The area of second rectangle is ${slength*swidth}`)
+
+            switch (true) {
+                case (length * width > slength * swidth):
+                    console.log(`This is the greater area ${length*width}`)
+                    break;
+                case (length * width < slength * swidth):
+                    console.log(`This is the greater area ${slength*swidth}`)
+                    break;
+
+                default:
+
+                    break;
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

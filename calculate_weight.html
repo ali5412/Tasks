@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/wireframe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        Enter Mass <input type="number" name="mass" /><br><br>
+        <button id="submit">Submit</button>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const inputs = document.querySelectorAll("input:not(input[type=submit])");
+            const refresh_values = () => {
+                for (const input of inputs) {
+                    window[input.name] = input.value;
+                }
+            };
+
+            document.getElementById("submit").onclick = () => {
+                refresh_values();
+                main();
+            };
+        });
+
+        function main() {
+            console.log(`The weight of the object ${ mass*9.8 }`)
+
+            if (mass * 9.8 > 1000) {
+                console.log('It is too heavy')
+            } else if (mass * 9.8 < 10) {
+                console.log('the object is too light')
+            } else {
+                console.log('Invalid Value')
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

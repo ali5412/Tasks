@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/wireframe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        Radius of Circle <input type="number" name="radius_circle" />
+        <p id="q16-1"></p>
+    </section>
+    <section>
+
+        Length of Rectangle<input type="number" name="length_Rectangle" /> width of Rectangle<input type="number" name="width_Rectangle" />
+        <p id="q16-2"></p>
+    </section>
+    <section>
+
+        Length of Triangle<input type="number" name="Length_Triangle" /> Height of Triangle<input type="number" name="height_Triangle" />
+        <p id="q16-3"></p>
+    </section>
+
+    <button id="submit">Submit</button>
+</body>
+<script>
+    function main() {
+
+
+
+        const pi = 3.141;
+        circlearea = pi * (radius_circle * radius_circle)
+
+        console.log(`the area of circle is ${circlearea} \n`);
+
+
+
+
+        rectarea = length_Rectangle * width_Rectangle;
+
+        console.log(`the area of rectangle is ${rectarea} \n`);
+
+
+
+        triarea = (Length_Triangle * height_Triangle) / 2;
+        console.log(`the area of triangle is ${triarea} \n`);
+
+    }
+</script>
+
+</html>

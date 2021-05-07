@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/wireframe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <section>
+        Enter the number <input type="number" name="converter" />
+        <button id="submit">Submit</button>
+    </section>
+
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const inputs = document.querySelectorAll("input:not(input[type=submit])");
+        const refresh_values = () => {
+            for (const input of inputs) {
+                window[input.name] = input.value;
+            }
+        };
+
+        document.getElementById("submit").onclick = () => {
+            refresh_values();
+            main();
+        };
+    });
+
+    function main() {
+
+        console.log(converter * .952 + " This is the exchange rate of yen")
+
+        console.log(converter * .7175 + " This is the exchange rate of euro")
+
+    }
+</script>
+
+</html>

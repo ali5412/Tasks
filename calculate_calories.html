@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/wireframe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        Enter Number of calories<input type="number" name="calories" /> Enter fats<input type="number" name="fats" />
+        <button id="submit">Submit</button>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const inputs = document.querySelectorAll("input:not(input[type=submit])");
+            const refresh_values = () => {
+                for (const input of inputs) {
+                    window[input.name] = input.value;
+                }
+            };
+
+            document.getElementById("submit").onclick = () => {
+                refresh_values();
+                main();
+            };
+        });
+
+        function main() {
+
+            const Calories_from_fat = fats * 9;
+            const percentage = Calories_from_fat / calories;
+
+            if (Calories_from_fat <= (30 * calories) / 100) {
+                console.log(`the calories in the food is ${percentage}`)
+                console.log(`the food is low in fat ${percentage}`)
+            } else {
+                console.log('the food is high in fat.')
+            }
+        }
+    </script>
+</body>
+
+</html>

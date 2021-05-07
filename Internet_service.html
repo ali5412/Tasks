@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/wireframe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        Enter Your name <input type="text" name="name" /><br><br> Enter Your package <input type="text" name="package" /><br><br> Enter Hours <input type="number" name="Hours" /><br><br>
+        <button id="submit">Submit</button>
+    </section>
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const inputs = document.querySelectorAll("input:not(input[type=submit])");
+        const refresh_values = () => {
+            for (const input of inputs) {
+                window[input.name] = input.value;
+            }
+        };
+
+        document.getElementById("submit").onclick = () => {
+            refresh_values();
+            main();
+        };
+    });
+
+    function main() {
+
+        const package_A = ((Hours - 10) * 2) + 9.95;
+        const package_B = ((Hours - 20) * 1) + 14.95;
+
+        if (package == "C" || package == "c") {
+
+            console.log(`Welcome ${name}`)
+            console.log('Your Bill is $19.95')
+
+        } else if (package == "A" || package == "a") {
+            if (Hours <= 10) {
+                console.log(`Welcome ${name}`)
+                console.log('Your Bill is 9.95')
+            } else if (Hours >= 10) {
+                console.log(`Welcome ${name}`);
+                console.log(`Your Bill is ${package_A} `);
+
+            }
+        } else if (package == "B" || package == "b") {
+            if (Hours <= 20) {
+
+                console.log(`Welcome ${name}`);
+                console.log('Your Bill is $14.95');
+
+            } else if (Hours >= 20) {
+                console.log(`Welcome ${name}`);
+                console.log(`Your Bill is ${package_B}`);
+            }
+        } else {
+            console.log('Invalid Package')
+        }
+    }
+</script>
+
+</html>
